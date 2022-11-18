@@ -1,0 +1,6 @@
+diyor = 100
+obid = 25
+sardor = 98
+dilshod  = 98
+o'ktam  = 100
+alibek  = 48

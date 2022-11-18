@@ -1,0 +1,20 @@
+*** TESTING SYSTEM ***
+
+Timizga login va parol orqali kiriladi.
+Tizimda ADMIN va USER role dagi
+foydalanuvchilar bo'lishi mumkin.
+
+1. ADMIN quyidagilarni amalga oshira oladi:
+    1. Add category
+    2. Show categories
+    3. Add question
+    4. Show questions
+    0. Log out
+    ...
+
+2. USER quyidagilarni amalga oshira oladi:
+    1. Solve quiz
+    2. Show test history
+    3. Fill balance (homework)
+    0. Log out
+    ...
