@@ -6,9 +6,11 @@ import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.apache.poi.xwpf.usermodel.*;
 
 import java.awt.*;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.List;
@@ -52,6 +54,28 @@ public class Printing {
             Desktop.getDesktop().open(file);
         } catch (IOException e) {
             e.printStackTrace();
+        }
+    }
+    public static void printToWord(){
+        File file=new File("src/main/resources/currencies.docx");
+
+
+        try (XWPFDocument document=new XWPFDocument();
+             FileOutputStream outputStream = new FileOutputStream(file)) {
+
+            XWPFParagraph paragraph=document.createParagraph();
+            paragraph.setAlignment(ParagraphAlignment.CENTER);
+
+            XWPFRun run = paragraph.createRun();
+            run.setText("Currency");
+            run.setFontSize(16);
+            run.setBold(true);
+
+            XWPFTable table = document.createTable();
+
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 }
