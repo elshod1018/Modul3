@@ -19,8 +19,8 @@ public class Printing {
     static List<Currency> currencies = Database.getCurrency();
 
     public static void main(String[] args) {
-        printToExcel();
-
+//        printToExcel();
+printToWord();
     }
 
     public static void printToExcel() {
@@ -72,7 +72,34 @@ public class Printing {
             run.setBold(true);
 
             XWPFTable table = document.createTable();
+            XWPFTableRow row = table.getRow(0);
+            XWPFTableCell cell = row.getCell(0);
+            cell.setText("Id");
+            cell.setWidth("20%");
 
+            cell=row.createCell();
+            cell.setWidth("25%");
+            cell.setText("Ccy");
+
+            cell=row.createCell();
+            cell.setWidth("35%");
+            cell.setText("CCyNmUz");
+
+            cell=row.createCell();
+            cell.setWidth("20%");
+            cell.setText("Rate");
+
+            for (Currency currency : currencies) {
+                row=table.createRow();
+                row.getCell(0).setText(String.valueOf(currency.getId()));
+                row.getCell(1).setText(currency.getCcy());
+                row.getCell(2).setText(currency.getCcyNmUZ());
+                row.getCell(3).setText(currency.getRate());
+            }
+
+            document.write(outputStream);
+
+            Desktop.getDesktop().open(file);
 
         } catch (IOException e) {
             throw new RuntimeException(e);
