@@ -21,18 +21,18 @@ public class App4 {
 
         showCurrencies(currencies);
 
-        System.out.println("From ccy: ");
+        System.out.print("From ccy: ");
         String fromCcy = new Scanner(System.in).nextLine();
 
         Currency fromCurrency = getFromCurrency(currencies, fromCcy);
         if (fromCurrency == null) return;
 
-        System.out.println("Enter amount ");
+        System.out.print("Enter amount: ");
         double value = new Scanner(System.in).nextDouble();
         double newValue = value * Double.parseDouble(fromCurrency.getRate());
-        System.out.println(value + " " + fromCcy + " = " + newValue + " UZS");
+//        System.out.println(value + " " + fromCcy + " = " + newValue + " UZS");
 
-        System.out.println("To ccy: ");
+        System.out.print("To ccy: ");
         String toCcy = new Scanner(System.in).nextLine();
 
         Currency toCurrency = getFromCurrency(currencies, toCcy);
